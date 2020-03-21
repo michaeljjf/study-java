@@ -7,6 +7,9 @@ import com.jiangjf.studyweb.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
+
 @Service("studentService")
 public class StudentServiceImp implements StudentService {
 
@@ -53,6 +56,11 @@ public class StudentServiceImp implements StudentService {
     @Override
     public int deleteBySno(String sno) {
         return studentDao.deleteBySno(sno);
+    }
+
+    @Override
+    public List<Map<String, Object>> queryStudentListMap() {
+        return studentDao.queryStudentListMap();
     }
 
     @Override
