@@ -25,13 +25,16 @@ public class LogAspect {
     @Autowired
     private SysLogDao sysLogDao;
 
-    @Pointcut("@annotation(com.jiangjf.studyweb.annotation.Log)")
-    public void pointcut() {
+//    @Pointcut("@annotation(com.jiangjf.studyweb.annotation.Log)")
+//    public void pointcut() {
+//
+//    }
 
-    }
+    @Around("@annotation(log)")
+    public Object around(ProceedingJoinPoint point, com.jiangjf.studyweb.annotation.Log log) {
 
-    @Around("pointcut()")
-    public Object around(ProceedingJoinPoint point) {
+//        System.out.println(log.value());
+
         Object obj = null;
         long beginTime = System.currentTimeMillis();
         Object[] args = point.getArgs();
